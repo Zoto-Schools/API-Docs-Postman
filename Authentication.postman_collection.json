@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "6659c282-e0dd-455a-a720-0ae600e22123",
+		"name": "Authentication",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11590503"
+	},
+	"item": [
+		{
+			"name": "Staff",
+			"item": [
+				{
+					"name": "Login & Generate Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"2216000004\",\n  \"password\": \"546379\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{username}}.{{server}}/auth/login",
+							"host": [
+								"{{username}}",
+								"{{server}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"2213600003\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{username}}.{{server}}/auth/resetpassword",
+							"host": [
+								"{{username}}",
+								"{{server}}"
+							],
+							"path": [
+								"auth",
+								"resetpassword"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Student",
+			"item": [
+				{
+					"name": "Login & Generate Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"virtualId\": \"2209900001\",\n  \"dob\": 21,\n  \"mob\": 9,\n  \"yob\": 2009,\n  \"fcmToken\" : \"token_here\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{username}}.{{server}}/auth/studentlogin",
+							"host": [
+								"{{username}}",
+								"{{server}}"
+							],
+							"path": [
+								"auth",
+								"studentlogin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "username",
+			"value": "abc",
+			"type": "string"
+		},
+		{
+			"key": "server",
+			"value": "x.localhost:3000",
+			"type": "string"
+		}
+	]
+}

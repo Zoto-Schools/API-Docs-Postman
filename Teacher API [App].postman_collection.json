@@ -1,0 +1,221 @@
+{
+	"info": {
+		"_postman_id": "00850fc7-8a03-46d1-9c40-d7e9a01e9131",
+		"name": "Teacher API [App]",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11590503"
+	},
+	"item": [
+		{
+			"name": "Get all class and sections",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{username}}.{{server}}/teacher/sections",
+					"host": [
+						"{{username}}",
+						"{{server}}"
+					],
+					"path": [
+						"teacher",
+						"sections"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all homeworks by sectionID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{username}}.{{server}}/teacher/homework/3",
+					"host": [
+						"{{username}}",
+						"{{server}}"
+					],
+					"path": [
+						"teacher",
+						"homework",
+						"3"
+					],
+					"query": [
+						{
+							"key": "skipcount",
+							"value": "false",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create homework",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"homework\" : {\n        \n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{username}}.{{server}}/teacher/homework/1",
+					"host": [
+						"{{username}}",
+						"{{server}}"
+					],
+					"path": [
+						"teacher",
+						"homework",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a homework by homeworkID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{username}}.{{server}}/teacher/homework/3",
+					"host": [
+						"{{username}}",
+						"{{server}}"
+					],
+					"path": [
+						"teacher",
+						"homework",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete all homeworks by sectionID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{username}}.{{server}}/teacher/homework/all/1",
+					"host": [
+						"{{username}}",
+						"{{server}}"
+					],
+					"path": [
+						"teacher",
+						"homework",
+						"all",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Submit student feedback",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"studentVirtualID\" : \"2209900001\",\n    \"feedback\" : \"Hi guyes ! what sup\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{username}}.{{server}}/teacher/studentfeedback",
+					"host": [
+						"{{username}}",
+						"{{server}}"
+					],
+					"path": [
+						"teacher",
+						"studentfeedback"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Student attendence",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{username}}.{{server}}/teacher/attendence/2209900001",
+					"host": [
+						"{{username}}",
+						"{{server}}"
+					],
+					"path": [
+						"teacher",
+						"attendence",
+						"2209900001"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IlRFQUNIRVIiLCJ2aXJ0dWFsSWQiOiIyMjE2MDAwMDA0IiwiaWF0IjoxNjg2NTgyMTM3fQ.y5ZWwioE2p4veORqCzxTsIKhABChVM9VoT8frLv5YcI ",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "authorization",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "username",
+			"value": "abc",
+			"type": "string"
+		},
+		{
+			"key": "server",
+			"value": "x.localhost:3000",
+			"type": "string"
+		}
+	]
+}

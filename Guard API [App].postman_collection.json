@@ -1,0 +1,76 @@
+{
+	"info": {
+		"_postman_id": "95a8e7ed-774c-4552-b852-f9f8b1d3c2ec",
+		"name": "Guard API [App]",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11590503"
+	},
+	"item": [
+		{
+			"name": "Log attendence",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{username}}.{{server}}/attendence/2209900001",
+					"host": [
+						"{{username}}",
+						"{{server}}"
+					],
+					"path": [
+						"attendence",
+						"2209900001"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mywicm9sZSI6IkdVQVJEIiwidmlydHVhbElkIjoiMjIxMzYwMDAwMyIsImlhdCI6MTY4NzI4NTE3Nn0.lKj2LBNFxAFJS_4JbaTr0sodGjlqRwyel0RpmLfOBoc",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "authorization",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "username",
+			"value": "abc",
+			"type": "string"
+		},
+		{
+			"key": "server",
+			"value": "x.localhost:3000",
+			"type": "string"
+		}
+	]
+}

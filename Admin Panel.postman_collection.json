@@ -1,0 +1,1580 @@
+{
+	"info": {
+		"_postman_id": "88115317-814d-482f-a540-4762258bfecc",
+		"name": "Admin Panel",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11590503"
+	},
+	"item": [
+		{
+			"name": "Student Management",
+			"item": [
+				{
+					"name": "Register new student",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Mrinmoy Sakrar\",\n  \"sectionId\": 1,\n  \"mobileNo\": \"9641831706\",\n  \"dob\": 21,\n  \"mob\": 9,\n  \"yob\": 2009,\n  \"picture\": \"https://static.toiimg.com/thumb/resizemode-4,msid-76729750,imgsize-249247,width-720/76729750.jpg\",\n  \"otherData\":{\n      \"father_name\" : \"Tapan Kumar Sarkar\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{username}}.{{server}}/dashboard/students/new",
+							"host": [
+								"{{username}}",
+								"{{server}}"
+							],
+							"path": [
+								"dashboard",
+								"students",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get student details by ID",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"profile\" : true,\n    \"schoolFee\": false,\n    \"studentAttendance\" : false,\n    \"studentFeedback\" : false,\n    \"studentMarksheet\" : false,\n    \"bill\" : false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{username}}.{{server}}/dashboard/students/5",
+							"host": [
+								"{{username}}",
+								"{{server}}"
+							],
+							"path": [
+								"dashboard",
+								"students",
+								"5"
+							]
+						},
+						"description": "Access student details and all linked records through this IP\n\nBy tweaking, the boolean params, we can request various datas\n\n```\n{\n    \"schoolFee\": true,\n    \"studentAttendance\" : true,\n    \"studentFeedback\" : true,\n    \"studentMarksheet\" : true,\n    \"bill\" : true\n}\n\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "Update student details",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Mrinmoy Sakrar\",\n  \"sectionId\": 1,\n  \"mobileNo\": \"9641831706\",\n  \"dob\": 21,\n  \"mob\": 9,\n  \"yob\": 2009,\n  \"picture\": \"https://static.toiimg.com/thumb/resizemode-4,msid-76729750,imgsize-249247,width-720/76729750.jpg\",\n  \"otherData\":{\n      \"father_name\" : \"T.Sarkar\",\n      \"mother_name\" : \"R.Sarka\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{username}}.{{server}}/dashboard/students/1",
+							"host": [
+								"{{username}}",
+								"{{server}}"
+							],
+							"path": [
+								"dashboard",
+								"students",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all students",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"profile\" : true,\n    \"schoolFee\": true,\n    \"studentAttendance\" : true,\n    \"studentFeedback\" : true,\n    \"studentMarksheet\" : true,\n    \"bill\" : true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{username}}.{{server}}/dashboard/students?skipcount=true",
+							"host": [
+								"{{username}}",
+								"{{server}}"
+							],
+							"path": [
+								"dashboard",
+								"students"
+							],
+							"query": [
+								{
+									"key": "skipcount",
+									"value": "true"
+								},
+								{
+									"key": "after",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter Students By name",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"profile\" : true,\n    \"schoolFee\": true,\n    \"studentAttendance\" : true,\n    \"studentFeedback\" : true,\n    \"studentMarksheet\" : true,\n    \"bill\" : true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{username}}.{{server}}/dashboard/students/search?name=Mrinmoy",
+							"host": [
+								"{{username}}",
+								"{{server}}"
+							],
+							"path": [
+								"dashboard",
+								"students",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Mrinmoy"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter Students By class-section",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"profile\" : true,\n    \"schoolFee\": true,\n    \"studentAttendance\" : true,\n    \"studentFeedback\" : true,\n    \"studentMarksheet\" : true,\n    \"bill\" : true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{username}}.{{server}}/dashboard/students/search?section=1",
+							"host": [
+								"{{username}}",
+								"{{server}}"
+							],
+							"path": [
+								"dashboard",
+								"students",
+								"search"
+							],
+							"query": [
+								{
+									"key": "section",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ID Resolvers",
+			"item": [
+				{
+					"name": "Any Virtual ID To Primary ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{username}}.{{server}}/dashboard/idresolver/2206600002",
+							"host": [
+								"{{username}}",
+								"{{server}}"
+							],
+							"path": [
+								"dashboard",
+								"idresolver",
+								"2206600002"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Student Virtual ID To Primary ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{username}}.{{server}}/dashboard/idresolver/student/2209900001",
+							"host": [
+								"{{username}}",
+								"{{server}}"
+							],
+							"path": [
+								"dashboard",
+								"idresolver",
+								"student",
+								"2209900001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Staff Virtual ID To Primary ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{username}}.{{server}}/dashboard/idresolver/staff/2209900001",
+							"host": [
+								"{{username}}",
+								"{{server}}"
+							],
+							"path": [
+								"dashboard",
+								"idresolver",
+								"staff",
+								"2209900001"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fees Management",
+			"item": [
+				{
+					"name": "Record New Payment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"studentId\" : 1,\n  \"month\" : 5,\n  \"year\" : 2022,\n  \"amount\" : 40000,\n  \"paymentID\" : \"\",\n  \"reasons\" : \"I ams seek\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{username}}.{{server}}/dashboard/paymentsfees/new",
+							"host": [
+								"{{username}}",
+								"{{server}}"
+							],
+							"path": [
+								"dashboard",
+								"paymentsfees",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Defaulters by month-year",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{username}}.{{server}}/dashboard/paymentsfees/defaulter/?month=6&year=2022",
+							"host": [
+								"{{username}}",
+								"{{server}}"
+							],
+							"path": [
+								"dashboard",
+								"paymentsfees",
+								"defaulter",
+								""
+							],
+							"query": [
+								{
+									"key": "month",
+									"value": "6"
+								},
+								{
+									"key": "year",
+									"value": "2022"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Defaulters by class-section",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{username}}.{{server}}/dashboard/paymentsfees/defaulter?month=7&year=2022&sectionId=1",
+							"host": [
+								"{{username}}",
+								"{{server}}"
+							],
+							"path": [
+								"dashboard",
+								"paymentsfees",
+								"defaulter"
+							],
+							"query": [
+								{
+									"key": "month",
+									"value": "7"
+								},
+								{
+									"key": "year",
+									"value": "2022"
+								},
+								{
+									"key": "sectionId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Payment History",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{username}}.{{server}}/dashboard/paymentsfees/?monthYearBased=true&month=5&year=2022",
+							"host": [
+								"{{username}}",
+								"{{server}}"
+							],
+							"path": [
+								"dashboard",
+								"paymentsfees",
+								""
+							],
+							"query": [
+								{
+									"key": "sectionBased",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "sectionId",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "durationBased",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "startDate",
+									"value": "2002-01-01",
+									"disabled": true
+								},
+								{
+									"key": "endDate",
+									"value": "2022-06-05",
+									"disabled": true
+								},
+								{
+									"key": "monthYearBased",
+									"value": "true"
+								},
+								{
+									"key": "month",
+									"value": "5"
+								},
+								{
+									"key": "year",
+									"value": "2022"
+								},
+								{
+									"key": "skipcount",
+									"value": "true",
+									"description": "For pagination",
+									"disabled": true
+								},
+								{
+									"key": "after",
+									"value": "2",
+									"description": "For pagination",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Use any combination of parameteres for search payment history"
+					},
+					"response": []
+				},
+				{
+					"name": "All default payment of a student by student id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{username}}.{{server}}/dashboard/students/defaultpayment/2",
+							"host": [
+								"{{username}}",
+								"{{server}}"
+							],
+							"path": [
+								"dashboard",
+								"students",
+								"defaultpayment",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Stocks Management",
+			"item": [
+				{
+					"name": "Get all stock details of product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{username}}.{{server}}/dashboard/stock",
+							"host": [
+								"{{username}}",
+								"{{server}}"
+							],
+							"path": [
+								"dashboard",
+								"stock"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Product 5\",\n    \"category\" : \"Shoe\",\n    \"stockCount\": 100,\n    \"pricePerUnit\" : 25000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{username}}.{{server}}/dashboard/stock",
+							"host": [
+								"{{username}}",
+								"{{server}}"
+							],
+							"path": [
+								"dashboard",
+								"stock"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update stock details of a product",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Product 5\",\n    \"category\" : \"Shoe\",\n    \"stockCount\": 0,\n    \"pricePerUnit\" : 25000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{username}}.{{server}}/dashboard/stock/3",
+							"host": [
+								"{{username}}",
+								"{{server}}"
+							],
+							"path": [
+								"dashboard",
+								"stock",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sell Products to Student",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"details\" : {\n        \"1\" : 10,\n        \"2\" : 5\n    },\n    \"studentId\" : 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{username}}.{{server}}/dashboard/stock/sell",
+							"host": [
+								"{{username}}",
+								"{{server}}"
+							],
+							"path": [
+								"dashboard",
+								"stock",
+								"sell"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all bills history",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{username}}.{{server}}/dashboard/stock/bills",
+							"host": [
+								"{{username}}",
+								"{{server}}"
+							],
+							"path": [
+								"dashboard",
+								"stock",
+								"bills"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "true",
+									"description": "Enable or disable based on requirement",
+									"disabled": true
+								},
+								{
+									"key": "startDate",
+									"value": "2022-05-22",
+									"description": "only required with filter",
+									"disabled": true
+								},
+								{
+									"key": "endDate",
+									"value": "2022-06-22",
+									"description": "only required with filter",
+									"disabled": true
+								},
+								{
+									"key": "skipcount",
+									"value": "true",
+									"description": "For pagination",
+									"disabled": true
+								},
+								{
+									"key": "after",
+									"value": "20",
+									"description": "For pagination",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Staff Management",
+			"item": [
+				{
+					"name": "Get all staffs details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{username}}.{{server}}/dashboard/staff",
+							"host": [
+								"{{username}}",
+								"{{server}}"
+							],
+							"path": [
+								"dashboard",
+								"staff"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get staffs details by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{username}}.{{server}}/dashboard/staff/3",
+							"host": [
+								"{{username}}",
+								"{{server}}"
+							],
+							"path": [
+								"dashboard",
+								"staff",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register Staff",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Teacher 1\",\n    \"mobileNo\" : \"9641831706\",\n    \"role\" : \"TEACHER\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{username}}.{{server}}/dashboard/staff/",
+							"host": [
+								"{{username}}",
+								"{{server}}"
+							],
+							"path": [
+								"dashboard",
+								"staff",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update staff account",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Guard 2\",\n    \"mobileNo\": \"9641831706\",\n    \"disabled\": false,\n    \"role\": \"GUARD\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{username}}.{{server}}/dashboard/staff/3",
+							"host": [
+								"{{username}}",
+								"{{server}}"
+							],
+							"path": [
+								"dashboard",
+								"staff",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Attendence Log",
+			"item": [
+				{
+					"name": "Get all staff attendences",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{username}}.{{server}}/dashboard/attendence/staff/all",
+							"host": [
+								"{{username}}",
+								"{{server}}"
+							],
+							"path": [
+								"dashboard",
+								"attendence",
+								"staff",
+								"all"
+							],
+							"query": [
+								{
+									"key": "skipCount",
+									"value": "true",
+									"description": "For pagination",
+									"disabled": true
+								},
+								{
+									"key": "after",
+									"value": "0",
+									"description": "Skip records, for pagination\n",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all student attendences",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{username}}.{{server}}/dashboard/attendence/student/all",
+							"host": [
+								"{{username}}",
+								"{{server}}"
+							],
+							"path": [
+								"dashboard",
+								"attendence",
+								"student",
+								"all"
+							],
+							"query": [
+								{
+									"key": "skipCount",
+									"value": "true",
+									"description": "For pagination",
+									"disabled": true
+								},
+								{
+									"key": "after",
+									"value": "0",
+									"description": "Skip records, for pagination\n",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get attendence log by Staff ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{username}}.{{server}}/dashboard/attendence/staff/1",
+							"host": [
+								"{{username}}",
+								"{{server}}"
+							],
+							"path": [
+								"dashboard",
+								"attendence",
+								"staff",
+								"1"
+							],
+							"query": [
+								{
+									"key": "skipCount",
+									"value": "true",
+									"description": "For pagination",
+									"disabled": true
+								},
+								{
+									"key": "after",
+									"value": "0",
+									"description": "Skip records, for pagination\n",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get attendence log by student ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{username}}.{{server}}/dashboard/attendence/student/1",
+							"host": [
+								"{{username}}",
+								"{{server}}"
+							],
+							"path": [
+								"dashboard",
+								"attendence",
+								"student",
+								"1"
+							],
+							"query": [
+								{
+									"key": "skipCount",
+									"value": "true",
+									"description": "For pagination",
+									"disabled": true
+								},
+								{
+									"key": "after",
+									"value": "0",
+									"description": "Skip records, for pagination\n",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "System Config",
+			"item": [
+				{
+					"name": "Class & Sections",
+					"item": [
+						{
+							"name": "Get all class and sections",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{username}}.{{server}}/dashboard/stage",
+									"host": [
+										"{{username}}",
+										"{{server}}"
+									],
+									"path": [
+										"dashboard",
+										"stage"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a particular class details by ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{username}}.{{server}}/dashboard/stage/1",
+									"host": [
+										"{{username}}",
+										"{{server}}"
+									],
+									"path": [
+										"dashboard",
+										"stage",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new class",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\" : \"Class 2\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{username}}.{{server}}/dashboard/stage",
+									"host": [
+										"{{username}}",
+										"{{server}}"
+									],
+									"path": [
+										"dashboard",
+										"stage"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Class Name",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\" : \"Class 1 up\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{username}}.{{server}}/dashboard/stage/1",
+									"host": [
+										"{{username}}",
+										"{{server}}"
+									],
+									"path": [
+										"dashboard",
+										"stage",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a new section under a class",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\" : \"Section B\",\n  \"maxStudentCapacity\" : 100\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{username}}.{{server}}/dashboard/stage/1/section",
+									"host": [
+										"{{username}}",
+										"{{server}}"
+									],
+									"path": [
+										"dashboard",
+										"stage",
+										"1",
+										"section"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Section Details",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\" : \"Section A update\",\n  \"maxStudentCapacity\" : 110\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{username}}.{{server}}/dashboard/stage/section/1",
+									"host": [
+										"{{username}}",
+										"{{server}}"
+									],
+									"path": [
+										"dashboard",
+										"stage",
+										"section",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "School",
+					"item": [
+						{
+							"name": "Get School Details [No auth]",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{username}}.{{server}}/details",
+									"host": [
+										"{{username}}",
+										"{{server}}"
+									],
+									"path": [
+										"details"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update School Name",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\" : \"XYZ International\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{username}}.{{server}}/dashboard/config/name",
+									"host": [
+										"{{username}}",
+										"{{server}}"
+									],
+									"path": [
+										"dashboard",
+										"config",
+										"name"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update School Subtitle",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"subTitle\" : \"Affiliation - 64654465\\nBirnagar, Nadia\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{username}}.{{server}}/dashboard/config/subtitle",
+									"host": [
+										"{{username}}",
+										"{{server}}"
+									],
+									"path": [
+										"dashboard",
+										"config",
+										"subtitle"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update School Logo",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"logo\" : \"https://delivio.com.au/wp-content/uploads/2018/08/zoho-logo-400x400.jpg\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{username}}.{{server}}/dashboard/config/logo",
+									"host": [
+										"{{username}}",
+										"{{server}}"
+									],
+									"path": [
+										"dashboard",
+										"config",
+										"logo"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Reset Attendences",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{username}}.{{server}}/dashboard/config/resetattendences",
+									"host": [
+										"{{username}}",
+										"{{server}}"
+									],
+									"path": [
+										"dashboard",
+										"config",
+										"resetattendences"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Other APIs",
+			"item": [
+				{
+					"name": "Upload Files",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/tanmoy/Downloads/Marksheet.pdf"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://abc.x.localhost:3000/upload",
+							"protocol": "http",
+							"host": [
+								"abc",
+								"x",
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"upload"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Marksheet Management",
+			"item": [
+				{
+					"name": "Add Unit Test Marksheet Schema",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"exam_name\":\"Unit Test 1\",\"total_marks\":300,\"class_id\":\"3\",\"class_name\":\"Class 5 update\",\"session\":\"2021-2022\",\"subjects_list\":[\"english\",\"bengali\",\"history\"],\"subjects\":{\"english\":{\"total_marks\":100,\"evaluation_parts_list\":[\"written\",\"notebook\",\"viva\"],\"evaluation_parts\":{\"written\":{\"total_marks\":80},\"notebook\":{\"total_marks\":10},\"viva\":{\"total_marks\":10}}},\"bengali\":{\"total_marks\":100,\"evaluation_parts_list\":[\"written\",\"notebook\",\"viva\"],\"evaluation_parts\":{\"written\":{\"total_marks\":80},\"notebook\":{\"total_marks\":10},\"viva\":{\"total_marks\":10}}},\"history\":{\"total_marks\":100,\"evaluation_parts_list\":[\"written\",\"notebook\",\"viva\"],\"evaluation_parts\":{\"written\":{\"total_marks\":80},\"notebook\":{\"total_marks\":10},\"viva\":{\"total_marks\":10}}}},\"co_subject_total_marks\":100,\"co_subjects_list\":[\"dance\",\"draw\"],\"co_subjects\":{\"dance\":{\"total_marks\":50},\"draw\":{\"total_marks\":50}}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{username}}.{{server}}/dashboard/marksheet/unitexam/template/new",
+							"host": [
+								"{{username}}",
+								"{{server}}"
+							],
+							"path": [
+								"dashboard",
+								"marksheet",
+								"unitexam",
+								"template",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch All Unit Marksheets Template",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{username}}.{{server}}/dashboard/marksheet/unitexam/templates",
+							"host": [
+								"{{username}}",
+								"{{server}}"
+							],
+							"path": [
+								"dashboard",
+								"marksheet",
+								"unitexam",
+								"templates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch All Unit Marksheets Mini Template",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{username}}.{{server}}/dashboard/marksheet/unitexam/minitemplates",
+							"host": [
+								"{{username}}",
+								"{{server}}"
+							],
+							"path": [
+								"dashboard",
+								"marksheet",
+								"unitexam",
+								"minitemplates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch Classes Unit Marksheets Mini Template",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{username}}.{{server}}/dashboard/marksheet/unitexam/minitemplates/:classId",
+							"host": [
+								"{{username}}",
+								"{{server}}"
+							],
+							"path": [
+								"dashboard",
+								"marksheet",
+								"unitexam",
+								"minitemplates",
+								":classId"
+							],
+							"variable": [
+								{
+									"key": "classId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get undone unit marksheet students list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{username}}.{{server}}/dashboard/marksheet/unitexam/students/undone/:template_id",
+							"host": [
+								"{{username}}",
+								"{{server}}"
+							],
+							"path": [
+								"dashboard",
+								"marksheet",
+								"unitexam",
+								"students",
+								"undone",
+								":template_id"
+							],
+							"variable": [
+								{
+									"key": "template_id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get done unit marksheet students list Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{username}}.{{server}}/dashboard/marksheet/unitexam/students/done/:template_id",
+							"host": [
+								"{{username}}",
+								"{{server}}"
+							],
+							"path": [
+								"dashboard",
+								"marksheet",
+								"unitexam",
+								"students",
+								"done",
+								":template_id"
+							],
+							"variable": [
+								{
+									"key": "template_id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Marksheet Entry for student",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"marksheet_template_id\" : 1,\n    \"student_id\" : 7,\n    \"data\" : {\n    \"subjects\": {\n            \"bengali\": {\n                \"evaluation_parts\": {\n                    \"written\": 30,\n                    \"viva\": 15\n                }\n            },\n            \"physical_chemistry\": {\n                \"evaluation_parts\": {\n                    \"lab\": 10,\n                    \"viva\": 15,\n                    \"written\": 58\n                }\n            }\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{username}}.{{server}}/dashboard/marksheet/marksheetentry",
+							"host": [
+								"{{username}}",
+								"{{server}}"
+							],
+							"path": [
+								"dashboard",
+								"marksheet",
+								"marksheetentry"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Access marksheet data and student data all in one api",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{username}}.{{server}}/dashboard/marksheet/unitexam/dataentry/:student_id/:template_id",
+							"host": [
+								"{{username}}",
+								"{{server}}"
+							],
+							"path": [
+								"dashboard",
+								"marksheet",
+								"unitexam",
+								"dataentry",
+								":student_id",
+								":template_id"
+							],
+							"variable": [
+								{
+									"key": "student_id",
+									"value": "1"
+								},
+								{
+									"key": "template_id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register final Exam Marksheet",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"exam_name\": \"Final Exam\",\n    \"class_id\": 2,\n    \"promoted_class_id\": 3,\n    \"session\": \"2022-2023\",\n    \"totalClassesCount\": 256,\n    \"termOneUnitExamMarksheetsTemplateIds\": [\n        5,\n        6\n    ],\n    \"termTwoUnitExamMarksheetsTemplateIds\": [\n        7,\n        8\n    ],\n    \"threeGradingScaleLabels\": [\n        \"A\",\n        \"B\",\n        \"C\"\n    ],\n    \"eightGradingScaleLabels\": [\n        \"A1\",\n        \"A2\",\n        \"B1\",\n        \"B2\",\n        \"C1\",\n        \"C2\",\n        \"D\",\n        \"E\"\n    ],\n    \"subjectPassEligibilityPercentage\": 0.4,\n    \"considerCoSubjectMarksForPassEligibility\": false,\n    \"coSubjectPassEligibilityPercentage\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{username}}.{{server}}/dashboard/marksheet/finalexam/template/register",
+							"host": [
+								"{{username}}",
+								"{{server}}"
+							],
+							"path": [
+								"dashboard",
+								"marksheet",
+								"finalexam",
+								"template",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Final Exam Template List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"exam_name\": \"Final Exam\",\n    \"class_id\": 2,\n    \"promoted_class_id\": 3,\n    \"session\": \"2022-2023\",\n    \"totalClassesCount\": 256,\n    \"termOneUnitExamMarksheetsTemplateIds\": [\n        5,\n        6\n    ],\n    \"termTwoUnitExamMarksheetsTemplateIds\": [\n        7,\n        8\n    ],\n    \"threeGradingScaleLabels\": [\n        \"A\",\n        \"B\",\n        \"C\"\n    ],\n    \"eightGradingScaleLabels\": [\n        \"A1\",\n        \"A2\",\n        \"B1\",\n        \"B2\",\n        \"C1\",\n        \"C2\",\n        \"D\",\n        \"E\"\n    ],\n    \"subjectPassEligibilityPercentage\": 0.4,\n    \"considerCoSubjectMarksForPassEligibility\": false,\n    \"coSubjectPassEligibilityPercentage\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{username}}.{{server}}/dashboard/marksheet/finalexam/template/list",
+							"host": [
+								"{{username}}",
+								"{{server}}"
+							],
+							"path": [
+								"dashboard",
+								"marksheet",
+								"finalexam",
+								"template",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send marksheet for processing",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"template_id\" : 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{username}}.{{server}}/dashboard/marksheet/finalexam/startmarksheetprocessing",
+							"host": [
+								"{{username}}",
+								"{{server}}"
+							],
+							"path": [
+								"dashboard",
+								"marksheet",
+								"finalexam",
+								"startmarksheetprocessing"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "key",
+				"value": "authorization",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6IkFETUlOIiwidmlydHVhbElkIjoiMjIxMDgwMDAwMSIsImlhdCI6MTY4NjU3MDA3OH0.Gx1RHVbH4n6YeWYsV8TZt_RkFoOt_K2HmM8Rub5BJlg",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "username",
+			"value": "abc",
+			"type": "string"
+		},
+		{
+			"key": "server",
+			"value": "x.localhost:3000",
+			"type": "string"
+		}
+	]
+}
