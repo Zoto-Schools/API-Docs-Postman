@@ -76,6 +76,25 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Fetch all feedbacks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{username}}.{{server}}/student/feedbacks",
+					"host": [
+						"{{username}}",
+						"{{server}}"
+					],
+					"path": [
+						"student",
+						"feedbacks"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"auth": {
